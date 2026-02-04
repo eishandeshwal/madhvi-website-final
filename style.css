@@ -1,22 +1,31 @@
 :root {
-  /* Premium Design System */
-  --color-bg: #F9F8F6; /* Soft off-white/beige */
-  --color-text-main: #2C3539; /* Deep charcoal */
-  --color-text-muted: #6B7280;
-  --color-accent: #6B9080; /* Calming Sage */
-  --color-accent-dark: #4A675B;
-  --color-highlight: #EAF4F4; /* Very light teal */
+  /* Warm Pastel Rebrand Design System */
+  --color-bg: #FCF9FF;
+  /* Soft Lilac-tinted White */
+  --color-text-main: #2D3436;
+  --color-text-muted: #636E72;
+  --color-accent: #C9E4D1;
+  /* Lighter, ethereal Sage */
+  --color-accent-dark: #8BA892;
+  --color-lilac: #F0E6FF;
+  /* More vibrant Lilac */
+  --color-periwinkle: #E0E0FF;
+  /* Soft Periwinkle */
+  --color-pink: #FFF0F5;
+  /* Pastel Pink */
   --color-white: #FFFFFF;
-  
-  --font-heading: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  
-  --spacing-container: 1200px;
-  --spacing-section: 6rem;
+
+  --font-heading: 'Lora', serif;
+  --font-body: 'Inter', sans-serif;
+
+  --spacing-container: 1100px;
+  --spacing-section: 8rem;
 }
 
 /* Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -25,6 +34,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  scroll-padding-top: 100px;
+  /* Prevent header overlap on section navigation */
 }
 
 body {
@@ -36,10 +47,15 @@ body {
   overflow-x: hidden;
 }
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   font-family: var(--font-heading);
-  font-weight: 600;
-  line-height: 1.2;
+  font-weight: 500;
+  /* Lora looks better at 500/600 */
+  line-height: 1.3;
+  letter-spacing: -0.01em;
 }
 
 img {
@@ -64,7 +80,9 @@ a {
   padding: var(--spacing-section) 0;
 }
 
-.text-center { text-align: center; }
+.text-center {
+  text-align: center;
+}
 
 /* Animations */
 .fade-in {
@@ -91,7 +109,7 @@ a {
 }
 
 .header.scrolled {
-  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
 }
 
 .nav {
@@ -102,10 +120,10 @@ a {
 
 .logo {
   font-family: var(--font-heading);
-  font-size: 1.5rem;
-  font-weight: 700;
+  font-size: 1.6rem;
+  font-weight: 600;
   color: var(--color-accent-dark);
-  letter-spacing: -0.02em;
+  font-style: italic;
 }
 
 .nav-links {
@@ -114,7 +132,8 @@ a {
 }
 
 .nav-link {
-  font-size: 0.95rem;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
   font-weight: 500;
   color: var(--color-text-main);
 }
@@ -131,7 +150,8 @@ a {
   align-items: center;
   position: relative;
   overflow: hidden;
-  padding-top: 80px; /* Offset for fixed header */
+  padding-top: 120px;
+  /* Offset for fixed header - increased to prevent cutoff */
 }
 
 /* We will use a gentle gradient if the image doesn't load, or overlay it */
@@ -142,7 +162,8 @@ a {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background: linear-gradient(135deg, #F9F8F6 0%, #EAF4F4 100%);
+  background: linear-gradient(135deg, var(--color-bg) 0%, var(--color-lilac) 20%, var(--color-periwinkle) 50%, var(--color-pink) 80%, var(--color-accent) 100%);
+  opacity: 0.9;
 }
 
 .hero-img {
@@ -153,7 +174,8 @@ a {
   height: 100%;
   z-index: -1;
   object-fit: cover;
-  opacity: 0.6; /* Soften the image */
+  opacity: 0.4;
+  /* More subtle image integration */
 }
 
 .hero-content {
@@ -165,14 +187,16 @@ a {
   letter-spacing: 0.1em;
   font-size: 0.875rem;
   color: var(--color-accent-dark);
+  margin-top: 1rem;
   margin-bottom: 1rem;
   font-weight: 600;
 }
 
 .hero-title {
-  font-size: 4rem;
-  margin-bottom: 1.5rem;
+  font-size: 4.5rem;
+  margin-bottom: 2rem;
   color: var(--color-text-main);
+  letter-spacing: -0.02em;
 }
 
 .hero-text {
@@ -213,22 +237,25 @@ a {
 }
 
 .card {
-  background: var(--color-white);
-  padding: 2.5rem;
-  border-radius: 20px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02);
-  border: 1px solid rgba(0,0,0,0.03);
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(5px);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.01);
+  transform: translateY(-8px);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.05);
 }
 
 /* Practice Section */
 .practice-section {
-  background-color: var(--color-highlight);
+  background-color: var(--color-bg);
+  background: linear-gradient(180deg, var(--color-bg) 0%, var(--color-periwinkle) 100%);
 }
 
 .feature-list {
@@ -270,7 +297,7 @@ a {
   font-size: 2rem;
   font-family: var(--font-heading);
   color: var(--color-white);
-  border-bottom: 2px solid rgba(255,255,255,0.2);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   padding-bottom: 0.5rem;
 }
 
@@ -280,10 +307,10 @@ a {
 }
 
 .footer-bottom {
-  border-top: 1px solid rgba(255,255,255,0.1);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
   padding-top: 2rem;
   font-size: 0.875rem;
-  color: rgba(255,255,255,0.6);
+  color: rgba(255, 255, 255, 0.6);
   display: flex;
   justify-content: space-between;
 }
@@ -293,16 +320,29 @@ a {
   .hero-title {
     font-size: 2.5rem;
   }
-  
+
   .about-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
   }
-  
+
   .nav-links {
-    display: none; /* simple hide for MPV, could add burger if needed but keeping it clean */
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+  }
+
+  .nav {
+    flex-direction: column;
+    text-align: center;
   }
 }
