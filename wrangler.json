@@ -1,0 +1,10 @@
+{
+    "name": "websitemads",
+    "compatibility_date": "2026-02-02",
+    "assets": {
+        "directory": "."
+    },
+    "observability": {
+        "enabled": true
+    }
+}
